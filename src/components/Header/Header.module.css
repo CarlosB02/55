@@ -1,0 +1,330 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 100;
+  transition: var(--transition-smooth);
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  height: 70px;
+  background: rgba(249, 248, 246, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logoPrimary {
+  font-family: var(--font-headings);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.03em;
+  color: var(--neutral-text-light);
+  transition: var(--transition-fast);
+}
+
+.logoSecondary {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--accent-orange);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+.logoContainer:hover .logoPrimary {
+  color: var(--accent-orange);
+}
+
+.nav {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.navLink {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--neutral-muted-light);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-orange);
+  transition: var(--transition-smooth);
+}
+
+.navLink:hover {
+  color: var(--neutral-text-light);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cartBtn {
+  position: relative;
+  color: var(--neutral-text-light);
+  padding: 0.5rem;
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartBtn:hover {
+  color: var(--accent-orange);
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.cartBadge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: var(--accent-orange);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--white);
+  animation: popBadge 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popBadge {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.burgerBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+
+.burgerLine {
+  width: 100%;
+  height: 2px;
+  background-color: var(--neutral-text-light);
+  transition: var(--transition-smooth);
+  transform-origin: left center;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: block;
+  }
+
+  .burgerBtn {
+    display: none;
+  }
+}
+
+/* Mobile-only header/footer hidden on desktop */
+.mobileMenuHeader {
+  display: none;
+}
+.mobileMenuFooter {
+  display: none;
+}
+
+/* Mobile Nav Overlay styling */
+@media (max-width: 767px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 320px;
+    height: 100dvh;
+    background: rgba(13, 15, 18, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    padding: calc(var(--spacing-lg) + env(safe-area-inset-top)) var(--spacing-lg) calc(var(--spacing-lg) + env(safe-area-inset-bottom));
+    transition: transform var(--transition-smooth), right var(--transition-smooth);
+    z-index: 99;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .mobileOpen {
+    right: 0;
+  }
+
+  .mobileMenuHeader {
+    display: block;
+    padding: var(--spacing-md) 0 var(--spacing-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .navList {
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .navLink {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    display: block;
+    transition: var(--transition-fast);
+  }
+
+  .navLink:hover {
+    color: var(--accent-orange);
+    transform: translateX(5px);
+  }
+
+  .mobileMenuFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: auto;
+    padding-bottom: var(--spacing-md);
+  }
+
+  .mobileDivider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    width: 100%;
+  }
+
+  .mobileContactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .footerLabel {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+    letter-spacing: 0.15em;
+  }
+
+  .mobilePhone {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    transition: var(--transition-fast);
+  }
+
+  .mobilePhone:hover {
+    color: var(--accent-orange);
+  }
+
+  .mobileAddress {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .mobileSocials {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .socialLink {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--accent-orange);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-md);
+    transition: var(--transition-fast);
+    display: inline-block;
+  }
+
+  .socialLink:hover {
+    background-color: var(--accent-orange);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(255, 90, 31, 0.2);
+  }
+
+  .burgerActive .burgerLine:nth-child(1) {
+    transform: rotate(45deg) translate(2px, -2px);
+    background-color: var(--accent-orange) !important;
+  }
+
+  .burgerActive .burgerLine:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burgerActive .burgerLine:nth-child(3) {
+    transform: rotate(-45deg) translate(2px, 2px);
+    background-color: var(--accent-orange) !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .transparent .navLink {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  .transparent .navLink:hover {
+    color: var(--white) !important;
+  }
+}
+
+.transparent .cartBtn {
+  color: var(--white) !important;
+}
+
+.transparent .cartBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.transparent .burgerLine {
+  background-color: var(--white) !important;
+}

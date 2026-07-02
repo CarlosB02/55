@@ -1,0 +1,638 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm);
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  background: var(--neutral-slate-deep);
+  border: 1px solid var(--neutral-border-dark);
+  border-radius: var(--border-radius-xl);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  overflow: hidden;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.header {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--neutral-border-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stepIndicator {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.closeBtn {
+  color: var(--neutral-muted-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.closeBtn:hover {
+  color: var(--accent-orange);
+}
+
+.progressTrack {
+  width: 100%;
+  height: 3px;
+  background: var(--neutral-slate-card);
+}
+
+.progressBar {
+  height: 100%;
+  background: var(--accent-orange);
+  transition: width 0.3s ease;
+}
+
+.content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: var(--spacing-lg);
+}
+
+.stepTitle {
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.stepSubtitle {
+  font-size: 0.9rem;
+  color: var(--neutral-muted-dark);
+  margin-bottom: var(--spacing-lg);
+  font-weight: 300;
+}
+
+/* STEP 1: Services List styling */
+.servicesList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.serviceBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--neutral-border-dark);
+  border-radius: var(--border-radius-md);
+  background: var(--neutral-slate-card);
+  color: var(--neutral-text-dark);
+  text-align: left;
+  transition: var(--transition-fast);
+}
+
+.serviceBtn:hover {
+  border-color: rgba(255, 90, 31, 0.3);
+  color: var(--white);
+}
+
+.selected {
+  border-color: var(--accent-orange) !important;
+  color: var(--white) !important;
+}
+
+.radioIndicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--neutral-border-dark);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.selected .radioIndicator {
+  border-color: var(--accent-orange);
+}
+
+.selected .radioIndicator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-orange);
+}
+
+.serviceName {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* STEP 2: Scheduler layouts */
+.subLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  letter-spacing: 0.05em;
+}
+
+.subLabel:first-of-type {
+  margin-top: 0;
+}
+
+.barbersGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xs);
+}
+
+@media (min-width: 576px) {
+  .barbersGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.barberCard {
+  background: var(--neutral-slate-card);
+  border: 1px solid var(--neutral-border-dark);
+  padding: var(--spacing-md) var(--spacing-xs);
+  border-radius: var(--border-radius-md);
+  text-align: center;
+  transition: var(--transition-fast);
+}
+
+.barberCard:hover {
+  border-color: rgba(255, 90, 31, 0.3);
+}
+
+.selectedCard {
+  border-color: var(--accent-orange) !important;
+  background-color: rgba(255, 90, 31, 0.05) !important;
+}
+
+.barberName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.barberRole {
+  font-size: 0.7rem;
+  color: var(--neutral-muted-dark);
+  line-height: 1.2;
+}
+
+.datesGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.dateCard {
+  background: var(--neutral-slate-card);
+  border: 1px solid var(--neutral-border-dark);
+  padding: 10px 4px;
+  border-radius: var(--border-radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  transition: var(--transition-fast);
+}
+
+.dateCard:hover {
+  border-color: rgba(255, 90, 31, 0.3);
+}
+
+.dateDay {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--neutral-muted-dark);
+  margin-bottom: 6px;
+}
+
+.dateNum {
+  font-family: var(--font-headings);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.selectedCard .dateDay,
+.selectedCard .dateNum {
+  color: var(--accent-orange);
+}
+
+.timesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-xs);
+}
+
+@media (min-width: 576px) {
+  .timesGrid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.timeCard {
+  background: var(--neutral-slate-card);
+  border: 1px solid var(--neutral-border-dark);
+  padding: 10px 4px;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--white);
+  text-align: center;
+  transition: var(--transition-fast);
+}
+
+.timeCard:hover {
+  border-color: rgba(255, 90, 31, 0.3);
+}
+
+.selectedCard.timeCard {
+  color: var(--accent-orange) !important;
+}
+
+/* STEP 3: Forms and confirmation styling */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.input {
+  background: var(--neutral-slate-card);
+  border: 1px solid var(--neutral-border-dark);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+}
+
+.input:focus {
+  border-color: var(--accent-orange);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent-orange-muted);
+}
+
+.bookingSummary {
+  background: var(--neutral-slate-card);
+  border: 1px solid var(--neutral-border-dark);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-xs);
+}
+
+.bookingSummary h4 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--white);
+  border-bottom: 1px solid var(--neutral-border-dark);
+  padding-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 0.05em;
+}
+
+.bookingSummary p {
+  font-size: 0.85rem;
+  color: var(--neutral-text-dark);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.bookingSummary p strong {
+  color: var(--white);
+}
+
+.submitBtn {
+  margin-top: var(--spacing-sm);
+  width: 100%;
+}
+
+/* STEP 4: Success View */
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.successIcon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  border: 2px solid #10B981;
+  color: #10B981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+  animation: bounceSuccess 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes bounceSuccess {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.successIcon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.successTitle {
+  font-size: 1.75rem;
+  color: var(--white);
+  margin-bottom: var(--spacing-xs);
+}
+
+.successText {
+  font-size: 0.95rem;
+  color: var(--neutral-muted-dark);
+  line-height: 1.5;
+  max-width: 440px;
+  margin-bottom: var(--spacing-lg);
+  font-weight: 300;
+}
+
+.successText strong {
+  color: var(--white);
+}
+
+.summaryBox {
+  background: var(--neutral-slate-card);
+  border: 1px solid var(--neutral-border-dark);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: left;
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.summaryBox p {
+  font-size: 0.9rem;
+  color: var(--neutral-text-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.summaryBox p:last-child {
+  margin-bottom: 0;
+}
+
+/* Modal Bottom Navigation Bar */
+.footer {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-top: 1px solid var(--neutral-border-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--neutral-slate-card);
+}
+
+.footer button {
+  white-space: nowrap;
+}
+
+.backBtn {
+  border-color: transparent;
+}
+
+.backBtn:hover {
+  border-color: transparent;
+  background-color: transparent;
+  color: var(--white);
+}
+
+/* Monthly Calendar Styling */
+.calendarContainer {
+  background: var(--neutral-slate-card);
+  border: 1px solid var(--neutral-border-dark);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.monthTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: capitalize;
+}
+
+.monthNav {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.monthNavBtn {
+  background: var(--neutral-slate-deep);
+  border: 1px solid var(--neutral-border-dark);
+  color: var(--white);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.monthNavBtn:hover:not(:disabled) {
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+}
+
+.monthNavBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.weekdaysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: var(--spacing-xs);
+}
+
+.weekdayLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--neutral-muted-dark);
+  text-transform: uppercase;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.dayCell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.dayCell:hover:not(.disabledDay):not(.selectedDay) {
+  background: rgba(255, 90, 31, 0.1);
+  border-color: rgba(255, 90, 31, 0.3);
+}
+
+.selectedDay {
+  background: var(--accent-orange) !important;
+  color: var(--white) !important;
+  border-color: var(--accent-orange) !important;
+}
+
+.todayDay {
+  border: 1px solid var(--accent-orange);
+  color: var(--accent-orange);
+}
+
+.disabledDay {
+  opacity: 0.25;
+  cursor: not-allowed;
+  color: var(--neutral-muted-dark);
+}
+
+.otherMonthDay {
+  color: var(--neutral-muted-dark);
+  opacity: 0.15;
+  cursor: not-allowed;
+}
+
+@media (max-width: 576px) {
+  .overlay {
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .modal {
+    max-height: calc(100dvh - 32px);
+    width: 100%;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--neutral-border-dark);
+  }
+
+  .content {
+    padding: var(--spacing-md);
+  }
+
+  .stepTitle {
+    font-size: 1.25rem;
+  }
+
+  .stepSubtitle {
+    font-size: 0.85rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .calendarContainer {
+    padding: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .dayCell {
+    font-size: 0.8rem;
+  }
+
+  .weekdayLabel {
+    font-size: 0.65rem;
+  }
+
+  .barbersGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .timesGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .footer {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .footer button {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+
+
