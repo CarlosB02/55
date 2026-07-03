@@ -218,8 +218,7 @@ export default function BookingModal() {
           {/* STEP 1: BARBER & DATE & TIME */}
           {bookingStep === 1 && (
             <div className={styles.stepContent}>
-              <h3 className={styles.stepTitle}>Agendar Atendimento</h3>
-              <p className={styles.stepSubtitle}>Escolha o profissional, data e hora da sua marcação.</p>
+              <h3 className={styles.stepTitle}>Agendar Atendimento</h3><br></br>
 
               {/* Service Selection (Fallback if not selected on main page) */}
               <div className={styles.formGroup} style={{ marginBottom: '20px' }}>

@@ -18,13 +18,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "O CORTE | Modern Barbershop & Grooming Laboratory | Viseu, Portugal",
-  description: "Experience premium styling, custom cuts, and professional grooming rituals at O CORTE in Viseu. Browse our specialized laboratory products and book your chair in seconds.",
-  keywords: ["barbershop viseu", "barber portugal", "lightning mcqueen barber chair", "haircut viseu", "grooming products", "hair clinic", "beard care"],
-  authors: [{ name: "O CORTE Team" }],
+  title: "Barbearia +55 | Barbearia em Viseu | Cortes, Barba & Grooming",
+  description: "Barbearia em Viseu especializada em cortes de cabelo, barba e grooming masculino. Marque online de forma rápida e descubra uma experiência moderna e personalizada.",
+  keywords: ["barbearia viseu", "barber portugal", "lightning mcqueen barber chair", "haircut viseu", "grooming products", "hair clinic", "beard care"],
+  authors: [{ name: "Barbearia +55" }],
   openGraph: {
-    title: "O CORTE | Modern Barbershop & Grooming Laboratory",
-    description: "Premium hair and beard care rituals in Viseu, Portugal. Seamless online booking and high-performance grooming products.",
+    title: "Barbearia +55 | Barbearia em Viseu | Cortes, Barba & Grooming",
+    description: "Barbearia em Viseu especializada em cortes de cabelo, barba e grooming masculino. Marque online de forma rápida e descubra uma experiência moderna e personalizada.",
     type: "website",
     locale: "pt_PT",
   },

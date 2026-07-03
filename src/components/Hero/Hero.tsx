@@ -81,7 +81,7 @@ export default function Hero() {
             <span className={styles.boardIcon}>📍</span>
             <div>
               <h4 className={styles.boardTitle}>LOCALIZAÇÃO CENTRAL</h4>
-              <p className={styles.boardDesc}>Av. 25 de Abril, Nº 45 — Viseu</p>
+              <p className={styles.boardDesc}>R. Prof. Egas Moniz, 3500-848 Viseu</p>
             </div>
           </div>
         </div>
