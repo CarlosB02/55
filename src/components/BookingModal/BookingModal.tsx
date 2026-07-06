@@ -56,6 +56,7 @@ export default function BookingModal() {
   } = useApp();
 
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [isLightMode, setIsLightMode] = useState(false);
   const timeSlotsRef = React.useRef<HTMLDivElement>(null);
   const contentRef = React.useRef<HTMLDivElement>(null);
 
@@ -109,6 +110,10 @@ export default function BookingModal() {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setBookingStep(3); // Success step
+  };
+
+  const toggleTheme = () => {
+    setIsLightMode(!isLightMode);
   };
 
   // Calendar logic
@@ -187,21 +192,31 @@ export default function BookingModal() {
 
   return (
     <div className={styles.overlay} onClick={handleClose}>
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+      <div className={`${styles.modal} ${isLightMode ? styles.lightMode : ''}`} onClick={(e) => e.stopPropagation()}>
         <div className={styles.header}>
           <div className={styles.stepIndicator}>
             {bookingStep < 3 ? `Passo ${bookingStep} de 2` : 'Marcação Concluída'}
           </div>
-          <button
-            className={styles.closeBtn}
-            onClick={handleClose}
-            aria-label="Fechar modal de reservas"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
+          <div className={styles.headerActions}>
+            <button 
+              className={styles.themeToggleBtn} 
+              onClick={toggleTheme}
+              aria-label="Alternar tema"
+              title="Alternar tema"
+            >
+              {isLightMode ? '🌙' : '☀️'}
+            </button>
+            <button
+              className={styles.closeBtn}
+              onClick={handleClose}
+              aria-label="Fechar modal de reservas"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Progress Bar */}

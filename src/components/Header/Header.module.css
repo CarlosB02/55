@@ -289,7 +289,7 @@
   .socialLink:hover {
     background-color: var(--accent-orange);
     color: var(--white);
-    box-shadow: 0 4px 12px rgba(255, 90, 31, 0.2);
+    box-shadow: 0 4px 12px rgba(254, 206, 0, 0.2);
   }
 
   .burgerActive .burgerLine:nth-child(1) {

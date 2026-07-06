@@ -41,7 +41,7 @@
   transform: translate(-50%, -50%);
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(255, 90, 31, 0.08) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(254, 206, 0, 0.08) 0%, transparent 65%);
   z-index: 3;
   pointer-events: none;
   animation: floatGlow 12s infinite alternate ease-in-out;
@@ -83,7 +83,7 @@
   color: var(--accent-orange);
   margin-bottom: var(--spacing-sm);
   text-transform: uppercase;
-  text-shadow: 0 0 15px rgba(255, 90, 31, 0.3);
+  text-shadow: 0 0 15px rgba(254, 206, 0, 0.3);
 }
 
 .headline {
@@ -101,7 +101,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
-  text-shadow: 0 0 40px rgba(255, 90, 31, 0.15);
+  text-shadow: 0 0 40px rgba(254, 206, 0, 0.15);
 }
 
 @media (min-width: 576px) {
@@ -151,7 +151,7 @@
 
 .heroBtnSecondary:hover {
   border-color: var(--accent-orange) !important;
-  background-color: rgba(255, 90, 31, 0.1) !important;
+  background-color: rgba(254, 206, 0, 0.1) !important;
   color: var(--accent-orange) !important;
 }
 

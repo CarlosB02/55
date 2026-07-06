@@ -118,7 +118,7 @@
 }
 
 .serviceBtn:hover {
-  border-color: rgba(255, 90, 31, 0.3);
+  border-color: rgba(254, 206, 0, 0.3);
   color: var(--white);
 }
 
@@ -194,12 +194,12 @@
 }
 
 .barberCard:hover {
-  border-color: rgba(255, 90, 31, 0.3);
+  border-color: rgba(254, 206, 0, 0.3);
 }
 
 .selectedCard {
   border-color: var(--accent-orange) !important;
-  background-color: rgba(255, 90, 31, 0.05) !important;
+  background-color: rgba(254, 206, 0, 0.05) !important;
 }
 
 .barberName {
@@ -234,7 +234,7 @@
 }
 
 .dateCard:hover {
-  border-color: rgba(255, 90, 31, 0.3);
+  border-color: rgba(254, 206, 0, 0.3);
 }
 
 .dateDay {
@@ -282,7 +282,7 @@
 }
 
 .timeCard:hover {
-  border-color: rgba(255, 90, 31, 0.3);
+  border-color: rgba(254, 206, 0, 0.3);
 }
 
 .selectedCard.timeCard {
@@ -532,7 +532,10 @@
 }
 
 .dayCell {
-  aspect-ratio: 1;
+  height: 44px;
+  width: 100%;
+  max-width: 44px;
+  justify-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -547,8 +550,8 @@
 }
 
 .dayCell:hover:not(.disabledDay):not(.selectedDay) {
-  background: rgba(255, 90, 31, 0.1);
-  border-color: rgba(255, 90, 31, 0.3);
+  background: rgba(254, 206, 0, 0.1);
+  border-color: rgba(254, 206, 0, 0.3);
 }
 
 .selectedDay {
@@ -569,6 +572,13 @@
 }
 
 .otherMonthDay {
+  height: 44px;
+  width: 100%;
+  max-width: 44px;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--neutral-muted-dark);
   opacity: 0.15;
   cursor: not-allowed;
@@ -632,6 +642,175 @@
     padding: 10px 14px;
     font-size: 0.85rem;
   }
+}
+
+/* Light Mode Styles */
+.modal.lightMode {
+  background: var(--neutral-cream);
+  border-color: var(--neutral-border-light);
+}
+
+.lightMode .header {
+  border-color: var(--neutral-border-light);
+}
+
+.lightMode .stepTitle {
+  color: var(--neutral-text-light);
+}
+
+.lightMode .stepSubtitle {
+  color: var(--neutral-muted-light);
+}
+
+.lightMode .closeBtn {
+  color: var(--neutral-muted-light);
+}
+
+.lightMode .closeBtn:hover {
+  color: var(--accent-orange);
+}
+
+.lightMode .subLabel {
+  color: var(--neutral-text-light);
+}
+
+.lightMode .barberCard {
+  background: var(--white);
+  border-color: var(--neutral-border-light);
+}
+
+.lightMode .barberName {
+  color: var(--neutral-text-light);
+}
+
+.lightMode .barberRole {
+  color: var(--neutral-muted-light);
+}
+
+.lightMode .calendarContainer {
+  background: var(--white);
+  border-color: var(--neutral-border-light);
+}
+
+.lightMode .monthTitle {
+  color: var(--neutral-text-light);
+}
+
+.lightMode .monthNavBtn {
+  background: var(--neutral-cream);
+  border-color: var(--neutral-border-light);
+  color: var(--neutral-text-light);
+}
+
+.lightMode .weekdayLabel {
+  color: var(--neutral-muted-light);
+}
+
+.lightMode .dayCell {
+  color: var(--neutral-text-light);
+}
+
+.lightMode .disabledDay {
+  color: var(--neutral-muted-light);
+}
+
+.lightMode .otherMonthDay {
+  color: var(--neutral-muted-light);
+}
+
+.lightMode .timeCard {
+  background: var(--white);
+  border-color: var(--neutral-border-light);
+  color: var(--neutral-text-light);
+}
+
+.lightMode .label {
+  color: var(--neutral-text-light);
+}
+
+.lightMode .input {
+  background: var(--white);
+  border-color: var(--neutral-border-light);
+  color: var(--neutral-text-light);
+}
+
+.lightMode .bookingSummary {
+  background: var(--white);
+  border-color: var(--neutral-border-light);
+}
+
+.lightMode .bookingSummary h4 {
+  color: var(--neutral-text-light);
+  border-bottom-color: var(--neutral-border-light);
+}
+
+.lightMode .bookingSummary p {
+  color: var(--neutral-muted-light);
+}
+
+.lightMode .bookingSummary p strong {
+  color: var(--neutral-text-light);
+}
+
+.lightMode .successTitle {
+  color: var(--neutral-text-light);
+}
+
+.lightMode .successText {
+  color: var(--neutral-muted-light);
+}
+
+.lightMode .successText strong {
+  color: var(--neutral-text-light);
+}
+
+.lightMode .summaryBox {
+  background: var(--white);
+  border-color: var(--neutral-border-light);
+}
+
+.lightMode .summaryBox p {
+  color: var(--neutral-text-light);
+}
+
+.lightMode .footer {
+  background: var(--white);
+  border-top-color: var(--neutral-border-light);
+}
+
+.lightMode .btn-secondary {
+  color: var(--neutral-text-light);
+  border-color: var(--neutral-border-light);
+}
+
+.lightMode .btn-secondary:hover {
+  color: var(--accent-orange);
+  background-color: rgba(254, 206, 0, 0.05);
+  border-color: var(--accent-orange);
+}
+
+/* Theme Toggle Button */
+.themeToggleBtn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 50%;
+  transition: var(--transition-fast);
+  margin-right: 12px;
+}
+
+.themeToggleBtn:hover {
+  background: rgba(254, 206, 0, 0.1);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
 }
 
 

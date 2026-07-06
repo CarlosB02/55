@@ -1,8 +1,8 @@
 :root {
-  /* Color Tokens - The Orange Contrast System */
-  --accent-orange: hsl(16, 100%, 56%);
-  --accent-orange-hover: hsl(16, 100%, 62%);
-  --accent-orange-muted: hsla(16, 100%, 56%, 0.15);
+  /* Color Tokens - Main Brand Color (#fece00) */
+  --accent-orange: #fece00;
+  --accent-orange-hover: #e6b900;
+  --accent-orange-muted: rgba(254, 206, 0, 0.15);
   
   --neutral-obsidian: hsl(216, 18%, 6%);
   --neutral-slate-deep: hsl(216, 16%, 10%);
@@ -149,7 +149,7 @@ button {
   letter-spacing: 0.05em;
   background: var(--accent-orange-muted);
   color: var(--accent-orange);
-  border: 1px solid rgba(255, 90, 31, 0.3);
+  border: 1px solid rgba(254, 206, 0, 0.3);
 }
 
 .text-gradient {
@@ -183,7 +183,7 @@ button {
   font-weight: 600;
   font-size: 0.95rem;
   transition: var(--transition-smooth);
-  box-shadow: 0 4px 14px rgba(255, 90, 31, 0.25);
+  box-shadow: 0 4px 14px rgba(254, 206, 0, 0.25);
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -204,7 +204,7 @@ button {
 
 .btn-primary:hover {
   background-color: var(--accent-orange-hover);
-  box-shadow: 0 6px 20px rgba(255, 90, 31, 0.4);
+  box-shadow: 0 6px 20px rgba(254, 206, 0, 0.4);
   transform: translateY(-2px);
 }
 
@@ -232,7 +232,7 @@ button {
 
 .btn-secondary:hover {
   border-color: var(--accent-orange);
-  background-color: rgba(255, 90, 31, 0.05);
+  background-color: rgba(254, 206, 0, 0.05);
   color: var(--accent-orange);
 }
 

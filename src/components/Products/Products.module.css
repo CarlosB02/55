@@ -71,7 +71,7 @@
 
 .productCard:hover {
   transform: translateY(-8px);
-  border-color: rgba(255, 90, 31, 0.3);
+  border-color: rgba(254, 206, 0, 0.3);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -105,7 +105,7 @@
   border-radius: 9999px;
   z-index: 5;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 10px rgba(255, 90, 31, 0.2);
+  box-shadow: 0 4px 10px rgba(254, 206, 0, 0.2);
 }
 
 .imageOverlay {
@@ -273,7 +273,7 @@
 }
 
 .dot:hover {
-  background: rgba(255, 90, 31, 0.5);
+  background: rgba(254, 206, 0, 0.5);
 }
 
 .activeDot {
